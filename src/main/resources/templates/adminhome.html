@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DECA BLOG</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+</head>
+
+<body>
+
+<!-- navbar items, navbar burger... -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <h3>DECA BLOG</h3>
+        </a>
+    </div>
+    <div class="navbar-menu">
+
+        <div class="navbar-start">
+            <!-- navbar items -->
+            <a class="navbar-item has-text-black">
+                Home
+            </a>
+            <a class="navbar-item has-text-black" href="/post">
+                Post
+            </a>
+        </div>
+
+        <!-- navbar start, navbar end -->
+    </div>
+</nav>
+
+
+<!-- navbar -->
+
+<section class="hero is-dark is-medium ">
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title has-text-centered ">
+                WELCOME!
+            </h1>
+            <h2 class="title has-text-centered ">
+                Here We Discuss Everything Tech.
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section class="section ">
+    <div class="container ">
+        <h1 class="title has-text-centered ">
+            Some of my latest projects
+        </h1>
+
+        <div class="columns ">
+            <div class="column ">
+                <figure class="image is-4by3 ">
+                    <img src="https://images.unsplash.com/photo-1494911193320-02703c1ce5b4?w=1500 ">
+                </figure>
+            </div>
+            <div class="column ">
+                <figure class="image is-4by3 is-centered ">
+                    <img src="https://images.unsplash.com/photo-1456659122552-6ee1788174bb?w=1500 ">
+                </figure>
+            </div>
+            <div class="column ">
+                <figure class="image is-4by3 is-centered ">
+                    <img src="https://images.unsplash.com/photo-1486458826750-9f4ef65e3e8f?w=1500 ">
+                </figure>
+            </div>
+
+        </div>
+
+        <div class="columns ">
+            <div class="column ">
+                <figure class="image is-4by3 ">
+                    <img src="https://images.unsplash.com/photo-1477737978268-6ad68e8033c0?w=1500">
+                </figure>
+            </div>
+            <div class="column ">
+                <figure class="image is-4by3 is-centered ">
+                    <img src="https://images.unsplash.com/photo-1485863319051-f48d0faa92ca?w=1502">
+                </figure>
+            </div>
+            <div class="column ">
+                <figure class="image is-4by3 is-centered ">
+                    <img src="https://images.unsplash.com/photo-1464591548933-97b5cca80dd4?w=1500">
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+<section class="section " >
+    <div class="container ">
+        <h1 class="title has-text-centered ">
+            My latest blog posts
+        </h1>
+
+        <div class="post created-post" th:each="pest:${posts}">
+            <div class="tile is-parent" >
+                <article class="tile is-child notification .is-$light">
+                    <p  class="title has-text-centered"><span th:text="${pest.getTitle()}"></span></p>
+                    <div class="content"><span th:text="${pest.getIntro}"></span>
+                    </div>
+                    <a class="button is-success is-centered" th:href="@{/adminread/{id}(id=${pest.getId()})}">Read More</a>
+                    <a class="button is-success is-centered" th:href="@{/delete/{id}(id=${pest.getId()})}" >Delete</a>
+                </article>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container is-fullhd">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Blog Template</strong> by Blackellis
+                <a href="https://blackellis.ro"></a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+
+</html>

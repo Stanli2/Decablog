@@ -1,0 +1,111 @@
+.background
+{
+    background-image: url(https://www.teahub.io/photos/full/6-61784_architecture.png);
+    background-size: cover;
+}
+.container
+{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%vw;
+    max-width: 320px;
+    height: 450px;
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    position: absolute;
+    border-radius: 15px;
+    background: #1F1A30;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+}
+.header
+{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: century gothic;
+}
+.name
+{
+    margin-top: 40px;
+}
+.email
+{
+    margin-top: 15px;
+}
+.password
+{
+    margin-top: 15px;
+}
+::placeholder
+{
+    color: white;
+}
+.textbox:focus
+{
+    outline-width: 0px;
+}
+.textbox
+{
+    width: 90%;
+    height: 35px;
+    padding: 5px;
+    padding-left: 20px;
+    color: white;
+    font-size: 15px;
+    font-family: century gothic;
+    border: none;
+    border-radius: 25px;
+    background: #39304D;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+}
+.options
+{
+    margin-top: 25px;
+    font-size: 12px;
+    font-family: century gothic;
+}
+.read
+{
+    color: white;
+}
+.terms
+{
+    color: #0DF6E3;
+    cursor: pointer;
+}
+.createAccount:hover
+{
+    cursor: pointer;
+    color: white;
+    background-color: #03564F
+}
+.createAccount
+{
+    width: 200px;
+    height: 45px;
+    margin-top: 25px;
+    font-size: 15px;
+    font-family: century gothic;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    background-color: #0DF6E3;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+}
+.account
+{
+    margin-top: 25px;
+    color: white;
+    font-size: 14px;
+    font-family: century gothic;
+}
+.signUp
+{
+    color: #0DF6E3;
+    cursor: pointer;
+}
