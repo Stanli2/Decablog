@@ -52,7 +52,7 @@ public class CommentController {
 
 
     @PostMapping("/createcomment/{id}")
-    public String createComment(@ModelAttribute Comments comments, HttpSession session, @PathVariable(value = "id") Long id) {
+    public String createComment(@ModelAttribute Comments comments, HttpSession session, @PathVariable(value = "id") Long id, Model model) {
         UserModel userModel = (UserModel) session.getAttribute("user");
         Post post = postService.getPostById(id);
         Comments comments1 = new Comments();
@@ -62,19 +62,21 @@ public class CommentController {
         comments1.setComment(comments.getComment());
 
         commentService.createComment(comments1);
+        postService.viewHomePage(model);
 
         return "read";
     }
 
 
     @GetMapping("/deletecomment/{commentId}")
-    public String deleteComment(@PathVariable String commentId, HttpSession session) {
+    public String deleteComment(@PathVariable String commentId, HttpSession session, Model model) {
         UserModel userModel = (UserModel) session.getAttribute("user");
         Comments comments = commentService.getCommentById(Long.parseLong(commentId));
         boolean validUser = comments.getUserModel().equals(userModel);
         if (validUser){
             commentService.deleteComment(comments);
         }
+        postService.viewHomePage(model);
         return "redirect:/read";
     }
 
@@ -88,7 +90,7 @@ public class CommentController {
     }
 
     @PostMapping("/updateComment/{commentId}")
-    public String updateComment(@PathVariable String commentId, HttpSession session, @RequestParam(value = "comment") String comment) {
+    public String updateComment(@PathVariable String commentId, HttpSession session, @RequestParam(value = "comment") String comment, Model model) {
         UserModel userModel = (UserModel) session.getAttribute("user");
         Comments comments = commentService.getCommentById(Long.parseLong(commentId));
         boolean validOwner = comments.getUserModel().equals(userModel);
@@ -97,6 +99,7 @@ public class CommentController {
             commentService.createComment(comments);
 
         }
+        postService.viewHomePage(model);
         return "redirect:/read";
     }
 }
